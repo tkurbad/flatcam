@@ -7,7 +7,7 @@
 ############################################################
 
 from cStringIO import StringIO
-from PyQt4 import QtCore
+from PyQt5 import QtCore
 from copy import copy
 from ObjectUI import *
 import FlatCAMApp

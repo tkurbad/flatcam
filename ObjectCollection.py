@@ -10,12 +10,12 @@
 from FlatCAMObj import *
 import inspect  # TODO: Remove
 import FlatCAMApp
-from PyQt4 import Qt, QtGui, QtCore
+from PyQt5 import Qt, QtGui, QtCore, QtWidgets
 
 
-class KeySensitiveListView(QtGui.QListView):
+class KeySensitiveListView(QtWidgets.QListView):
     """
-    QtGui.QListView extended to emit a signal on key press.
+    QtWidgets.QListView extended to emit a signal on key press.
     """
 
     keyPressed = QtCore.pyqtSignal(int)
@@ -255,7 +255,7 @@ class ObjectCollection(QtCore.QAbstractListModel):
         :return: None
         """
         iobj = self.createIndex(self.get_names().index(name), 0)  # Column 0
-        self.view.selectionModel().select(iobj, QtGui.QItemSelectionModel.Select)
+        self.view.selectionModel().select(iobj, QtCore.QItemSelectionModel.Select)
 
     def set_inactive(self, name):
         """
@@ -266,7 +266,7 @@ class ObjectCollection(QtCore.QAbstractListModel):
         :return: None
         """
         iobj = self.createIndex(self.get_names().index(name), 0)  # Column 0
-        self.view.selectionModel().select(iobj, QtGui.QItemSelectionModel.Deselect)
+        self.view.selectionModel().select(iobj, QtCore.QItemSelectionModel.Deselect)
 
     def set_all_inactive(self):
         """

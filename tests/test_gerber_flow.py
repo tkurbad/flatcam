@@ -1,6 +1,6 @@
 import sys
 import unittest
-from PyQt4 import QtGui
+from PyQt5 import QtGui
 from FlatCAMApp import App, tclCommands
 from FlatCAMObj import FlatCAMGerber, FlatCAMGeometry, FlatCAMCNCjob
 from ObjectUI import GerberObjectUI, GeometryObjectUI

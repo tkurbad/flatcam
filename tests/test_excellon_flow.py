@@ -1,5 +1,5 @@
 import unittest
-from PyQt4 import QtGui
+from PyQt5 import QtGui
 import sys
 from FlatCAMApp import App
 from FlatCAMObj import FlatCAMExcellon, FlatCAMCNCjob

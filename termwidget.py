@@ -4,10 +4,11 @@ Shows intput and output text. Allows to enter commands. Supports history.
 """
 
 import cgi
-from PyQt4.QtCore import pyqtSignal, Qt
-from PyQt4.QtGui import QColor, QKeySequence, QLineEdit, QPalette, \
-                        QSizePolicy, QTextCursor, QTextEdit, \
-                        QVBoxLayout, QWidget
+from PyQt5.QtCore import pyqtSignal, Qt
+from PyQt5.QtGui import QColor, QKeySequence, QPalette, \
+                        QTextCursor
+from PyQt5.QtWidgets import QLineEdit, QSizePolicy, QTextEdit, \
+                            QVBoxLayout, QWidget
 
 
 class _ExpandableTextEdit(QTextEdit):

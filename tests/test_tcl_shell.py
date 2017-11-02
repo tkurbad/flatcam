@@ -1,7 +1,7 @@
 import sys
 import unittest
-from PyQt4 import QtGui
-from PyQt4.QtCore import QThread
+from PyQt5 import QtGui
+from PyQt5.QtCore import QThread
 
 from FlatCAMApp import App
 from os import listdir

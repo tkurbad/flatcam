@@ -1,5 +1,5 @@
 import sys
-from PyQt4 import QtCore, QtGui
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class MyObj():
@@ -16,7 +16,7 @@ def parse():
     raise Exception("Intentional Exception")
 
 
-class Example(QtGui.QWidget):
+class Example(QtWidgets.QWidget):
 
     def __init__(self):
         super(Example, self).__init__()

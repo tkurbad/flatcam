@@ -6,10 +6,10 @@
 # MIT Licence                                              #
 ############################################################
 
-from PyQt4 import QtGui
+from PyQt5 import QtGui, QtWidgets
 
 
-class FlatCAMTool(QtGui.QWidget):
+class FlatCAMTool(QtWidgets.QWidget):
 
     toolName = "FlatCAM Generic Tool"
 
@@ -21,7 +21,7 @@ class FlatCAMTool(QtGui.QWidget):
         :param parent: Qt Parent
         :return: FlatCAMTool
         """
-        QtGui.QWidget.__init__(self, parent)
+        QtWidgets.QWidget.__init__(self, parent)
 
         # self.setSizePolicy(QtGui.QSizePolicy.Maximum, QtGui.QSizePolicy.Maximum)
 

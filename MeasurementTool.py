@@ -1,4 +1,4 @@
-from PyQt4 import QtGui
+from PyQt5 import QtGui
 from FlatCAMTool import FlatCAMTool
 from copy import copy
 from math import sqrt
@@ -12,7 +12,7 @@ class Measurement(FlatCAMTool):
         FlatCAMTool.__init__(self, app)
 
         # self.setContentsMargins(0, 0, 0, 0)
-        self.layout.setMargin(0)
+        self.layout.setContentsMargins(0, 0, 0, 0)
         self.layout.setContentsMargins(0, 0, 3, 0)
 
         self.setSizePolicy(QtGui.QSizePolicy.Ignored, QtGui.QSizePolicy.Maximum)
