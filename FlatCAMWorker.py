@@ -58,7 +58,7 @@ class Worker(QtCore.QObject):
             try:
                 task['fcn'](*task['params'])
             except Exception as e:
-                self.app.thread_exception.emit(e)
+                #self.app.thread_exception.emit(e)
                 raise e
 
             return

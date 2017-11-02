@@ -209,10 +209,10 @@ class App(QtCore.QObject):
         super(App, self).__init__()
 
         self.ui = FlatCAMGUI(self.version, name=self.version_name)
-        #import pdb; pdb.set_trace()
         #self.connect(self.ui,
         #             QtCore.SIGNAL("geomUpdate(int, int, int, int)"),
         #             self.save_geometry)
+        self.ui.geom_update.connect(self.save_geometry)
 
         #### Plot Area ####
         # self.plotcanvas = PlotCanvas(self.ui.splitter)
@@ -482,6 +482,7 @@ class App(QtCore.QObject):
         self.thr1 = QtCore.QThread()
         self.worker.moveToThread(self.thr1)
         #self.connect(self.thr1, QtCore.SIGNAL("started()"), self.worker.run)
+        self.thr1.started.connect(self.worker.run)
         self.thr1.start()
 
         #### Check for updates ####
@@ -496,6 +497,10 @@ class App(QtCore.QObject):
         #             lambda: self.worker_task.emit({'fcn': self.version_check,
         #                                            'params': [],
         #                                            'worker_name': "worker2"}))
+        self.thr2.started.connect(self.worker2.run)
+        self.thr2.started.connect(lambda: self.worker_task.emit({'fcn': self.version_check,
+                                  'params': [],
+                                  'worker_name': "worker2"}))
         self.thr2.start()
 
         ### Signal handling ###
@@ -915,14 +920,14 @@ class App(QtCore.QObject):
         if match:
             level = match.group(1)
             msg_ = match.group(2)
-            self.ui.fcinfo.set_status(QtCore.QString(msg_), level=level)
+            self.ui.fcinfo.set_status(msg_, level=level)
 
             if toshell:
                 error = level == "error" or level == "warning"
                 self.shell_message(msg, error=error, show=True)
 
         else:
-            self.ui.fcinfo.set_status(QtCore.QString(msg), level="info")
+            self.ui.fcinfo.set_status(msg, level="info")
 
             if toshell:
                 self.shell_message(msg)
@@ -4257,10 +4262,10 @@ class App(QtCore.QObject):
         App.log.debug("Newer version available.")
         self.message.emit(
             "Newer Version Available",
-            QtCore.QString("There is a newer version of FlatCAM " +
-                           "available for download:<br><br>" +
-                           "<B>" + data["name"] + "</b><br>" +
-                           data["message"].replace("\n", "<br>")),
+            "There is a newer version of FlatCAM " +
+            "available for download:<br><br>" +
+            "<B>" + data["name"] + "</b><br>" +
+            data["message"].replace("\n", "<br>"),
             "info"
         )
 
