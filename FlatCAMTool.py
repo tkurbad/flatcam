@@ -6,7 +6,7 @@
 # MIT Licence                                              #
 ############################################################
 
-from PyQt5 import QtGui, QtWidgets
+from PyQt5 import QtWidgets
 
 
 class FlatCAMTool(QtWidgets.QWidget):
@@ -21,11 +21,11 @@ class FlatCAMTool(QtWidgets.QWidget):
         :param parent: Qt Parent
         :return: FlatCAMTool
         """
-        QtWidgets.QWidget.__init__(self, parent)
+        super(FlatCAMTool, self).__init__(parent)
 
         # self.setSizePolicy(QtGui.QSizePolicy.Maximum, QtGui.QSizePolicy.Maximum)
 
-        self.layout = QtGui.QVBoxLayout()
+        self.layout = QtWidgets.QVBoxLayout()
         self.setLayout(self.layout)
 
         self.app = app
